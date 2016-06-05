@@ -16,8 +16,9 @@ public class BoardManager : MonoBehaviour
 	public GameObject[] wallTiles;									
 	public GameObject[] itemTiles;									
 	public GameObject[] enemyTiles;							
-	public GameObject[] outerWallTiles;						
-	private Transform boardHolder;								
+	public GameObject[] outerWallTiles;
+    public GameObject[] bossTiles;
+    private Transform boardHolder;								
 	private List <Vector3> gridPositions = new List <Vector3> ();	
 		
 	void InitialiseList ()
@@ -83,14 +84,10 @@ public class BoardManager : MonoBehaviour
 
     public void SetupBossScene()
     {
-        //BoardSetup();
-
         InitialiseList();
         //LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
-        //LayoutObjectAtRandom(itemTiles, itemCount.minimum, itemCount.maximum);
-        int enemyCount = 1;
-        Instantiate(boss, new Vector3(columns - 3, rows - 3, 0f), Quaternion.identity);
-        //LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
-        //Instantiate(exit, new Vector3(columns - 1, rows - 1, 0f), Quaternion.identity);
+        LayoutObjectAtRandom(itemTiles, itemCount.minimum, itemCount.maximum);
+        int bossCount = 1;
+        LayoutObjectAtRandom(bossTiles, bossCount, bossCount);
     }
 }
