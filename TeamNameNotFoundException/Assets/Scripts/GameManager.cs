@@ -14,14 +14,15 @@ public class GameManager : MonoBehaviour
 		[HideInInspector] public bool playersTurn = true;			
 		private Text levelText;									
 		private GameObject levelImage;
-        public AudioClip cheatSound;				
+        public AudioClip cheatSound;
+        public AudioSource bossBGM;
 		private BoardManager boardScript;					
 		private int level = 1;									
 		private List<Enemy> enemies;							
 		private bool enemiesMoving;								
 		private bool doingSetup = true;
         static bool firstRun = true;
-    public GameObject bossBackground;
+        public GameObject bossBackground;
 
     //Cheat code
     private string[] cheatCode;
@@ -80,7 +81,9 @@ public class GameManager : MonoBehaviour
                 }
             }
             else
-            {
+        {
+                SoundManager.instance.musicSource.Stop();
+            SoundManager.instance.bossBGM.Play();
                 bossBackground.SetActive(true);
                 boardScript.SetupBossScene();
             }
