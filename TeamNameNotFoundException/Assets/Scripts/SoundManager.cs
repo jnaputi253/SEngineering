@@ -5,7 +5,8 @@ public class SoundManager : MonoBehaviour
 {
 	public AudioSource efxSource;
     public AudioSource sfxSournce;
-    public AudioSource musicSource;					
+    public AudioSource musicSource;
+    public AudioSource bossBGM;
 	public static SoundManager instance = null;					
 	public float lowPitchRange = .95f;				
 	public float highPitchRange = 1.05f;			
@@ -46,4 +47,5 @@ public class SoundManager : MonoBehaviour
         sfxSournce.clip = clips[index];
         sfxSournce.Play();
     }
+    
 }
