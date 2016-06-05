@@ -30,18 +30,18 @@ public class GameManager : MonoBehaviour
     private GameObject cheatText;
 
 
-    void Awake()
-		{
-			if (instance == null)
-				instance = this;
-			else if (instance != this)
-				Destroy(gameObject);	
-			DontDestroyOnLoad(gameObject);
-			enemies = new List<Enemy>();
-			boardScript = GetComponent<BoardManager>();
-            InitGame();
-            cheatCode = new string[] { "i", "d", "k", "f", "a" };
-            index = 0;
+	void Awake()
+	{
+		if (instance == null)
+			instance = this;
+		else if (instance != this)
+			Destroy(gameObject);	
+		DontDestroyOnLoad(gameObject);
+		enemies = new List<Enemy>();
+		boardScript = GetComponent<BoardManager>();
+        InitGame();
+        cheatCode = new string[] { "i", "d", "k", "f", "a" };
+        index = 0;
     }
 
     void OnLevelWasLoaded(int index)
@@ -128,6 +128,8 @@ public class GameManager : MonoBehaviour
 		levelText.text = "Your laptop died! You are stuck in the computer forever. GAME OVER.";
 		levelImage.SetActive(true);
 		enabled = false;
+		firstRun = false;
+		Destroy (this);
 		SceneManager.LoadScene ("GameOverScene");
 	}
 	
@@ -143,8 +145,9 @@ public class GameManager : MonoBehaviour
 		{
 			if(enemies[i].health > 0) {
 				enemies[i].MoveEnemy();
-				yield return new WaitForSeconds(enemies[i].moveTime);
 			}
+
+			yield return new WaitForSeconds(enemies[i].moveTime);
 		}
 		playersTurn = true;
 		enemiesMoving = false;
