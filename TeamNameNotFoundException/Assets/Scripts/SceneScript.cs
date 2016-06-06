@@ -9,6 +9,7 @@ public class SceneScript : MonoBehaviour {
 	void Start () {
         if (SoundManager.instance == null)
             Instantiate(soundManager);
+        SoundManager.instance.musicSource.Play();
     }
 	
 	// Update is called once per frame

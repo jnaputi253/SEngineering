@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource sfxSournce;
     public AudioSource musicSource;
     public AudioSource bossBGM;
+    public AudioSource thunder;
 	public static SoundManager instance = null;					
 	public float lowPitchRange = .95f;				
 	public float highPitchRange = 1.05f;			
