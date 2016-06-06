@@ -27,6 +27,12 @@ public class SceneScript : MonoBehaviour {
         SceneManager.LoadScene("MainScene");
     }
 
+    public void goToTutorialScene()
+    {
+        SoundManager.instance.PlaySingle(menuSelect);
+        SceneManager.LoadScene("TutorialScene");
+    }
+
     public void exitGame()
     {
         SoundManager.instance.PlaySingle(menuSelect);
