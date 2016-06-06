@@ -2,16 +2,16 @@
 using System.Collections;
 
 public class Loader : MonoBehaviour 
+{
+	public GameObject gameManager;			
+	public GameObject soundManager;			
+	
+	
+	void Awake ()
 	{
-		public GameObject gameManager;			
-		public GameObject soundManager;			
-		
-		
-		void Awake ()
-		{
-			if (GameManager.instance == null)
-				Instantiate(gameManager);
-			if (SoundManager.instance == null)
-				Instantiate(soundManager);
-		}
+		if (GameManager.instance == null)
+			Instantiate(gameManager);
+		if (SoundManager.instance == null)
+			Instantiate(soundManager);
 	}
+}
