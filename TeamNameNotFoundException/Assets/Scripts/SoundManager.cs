@@ -25,9 +25,11 @@ public class SoundManager : MonoBehaviour
 		DontDestroyOnLoad (gameObject);
 	}
 		
-	public void PlaySingle(AudioClip clip)
+	public void PlaySingle(AudioClip clip, bool isGirl = false)
 	{
 		efxSource.clip = clip;
+        if (isGirl)
+            efxSource.pitch = 2f;
 		efxSource.Play();
 	}
 		
