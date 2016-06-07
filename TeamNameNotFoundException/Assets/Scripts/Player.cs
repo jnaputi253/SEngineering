@@ -140,8 +140,11 @@ public class Player : MovingObject
 	public override void Damaged (int loss)
 	{
 		animator.SetTrigger("playerHit");
-		SoundManager.instance.PlaySingle(hurtSound);
-		battery -= loss;
+        if (string.Equals(ApplicationData.characterName, "Ashley", System.StringComparison.CurrentCultureIgnoreCase) || string.Equals(ApplicationData.characterName, "Stormi", System.StringComparison.CurrentCultureIgnoreCase))
+            SoundManager.instance.PlaySingle(hurtSound, true);
+        else
+            SoundManager.instance.PlaySingle(hurtSound);
+        battery -= loss;
 		PlusMinusBatteryText.text = "-" + loss;
 		BatteryText.text = battery + "%";
 		CheckIfGameOver();

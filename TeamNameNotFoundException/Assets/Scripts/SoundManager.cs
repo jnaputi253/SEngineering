@@ -29,7 +29,7 @@ public class SoundManager : MonoBehaviour
 	{
 		efxSource.clip = clip;
         if (isGirl)
-            efxSource.pitch = 2f;
+            efxSource.pitch = 1.5f;
 		efxSource.Play();
 	}
 		
