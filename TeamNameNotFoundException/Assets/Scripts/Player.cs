@@ -128,7 +128,7 @@ public class Player : MovingObject
 
     private void Restart()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("GameScene");
     }
 
 

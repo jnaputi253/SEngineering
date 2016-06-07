@@ -18,7 +18,7 @@ public class Tutorial : MonoBehaviour {
     {
         if (SoundManager.instance == null)
             Instantiate(soundManager);
-        if(scene == "TestScene")
+        if(scene == "MenuScene")
         {
             SoundManager.instance.thunder.Play();
         }
@@ -38,7 +38,7 @@ public class Tutorial : MonoBehaviour {
     {
         if(currentImage == images.Length)
         {
-           if(scene == "TestScene" && !animationPlayed)
+           if(scene == "MenuScene" && !animationPlayed)
             {
                 hideAllImages();
                 Instantiate(vortex);

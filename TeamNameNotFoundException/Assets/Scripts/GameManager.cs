@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 		private bool enemiesMoving;								
 		private bool doingSetup = true;
         static bool firstRun = true;
+	public bool gameWon = false;
         public GameObject bossBackground;
 
     //Cheat code
@@ -128,9 +129,13 @@ public class GameManager : MonoBehaviour
 		
 		public void GameOver()
 		{
-			levelText.text = "Your laptop died! You are stuck in the computer forever. GAME OVER.";
+		SoundManager.instance.bossBGM.Stop ();
 			levelImage.SetActive(true);
 			enabled = false;
+		firstRun = true;
+		level = 1;
+		Destroy (gameObject);
+		SceneManager.LoadScene ("GameOverScene");
 		}
 		
 		IEnumerator MoveEnemies()
@@ -146,12 +151,23 @@ public class GameManager : MonoBehaviour
 				if(enemies[i].health > 0) {
 					enemies[i].MoveEnemy();
 				}
+
+			if (enemies [i].health < 0 && level == 10) {
+				Victory ();
+			}
                 yield return new WaitForSeconds(enemies[i].moveTime);
             }
 			playersTurn = true;
 			enemiesMoving = false;
 		}
 
+	void Victory() {
+		SoundManager.instance.bossBGM.Stop ();
+		levelImage.SetActive(true);
+		enabled = false;
+		firstRun = true;
+		level = 1;
+		Destroy (gameObject);
+		SceneManager.LoadScene ("VictoryScene");
+	}
 }
-
-

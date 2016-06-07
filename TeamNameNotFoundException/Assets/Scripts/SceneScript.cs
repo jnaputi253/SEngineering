@@ -11,11 +11,7 @@ public class SceneScript : MonoBehaviour {
             Instantiate(soundManager);
         SoundManager.instance.musicSource.Play();
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
     public void goToCharacterSelectionScreen()
     {
         SoundManager.instance.PlaySingle(menuSelect);
@@ -25,7 +21,7 @@ public class SceneScript : MonoBehaviour {
     public void goToGameScene()
     {
         SoundManager.instance.PlaySingle(menuSelect);
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void goToTutorialScene()
